@@ -1,0 +1,27 @@
+
+#### 4. **Документация кода**
+
+1. **Комментарии в коде**:
+   - Пройди по основным файлам проекта (например, `app.py`) и добавь комментарии к ключевым функциям и частям кода. Это сделает код более понятным для других разработчиков.
+
+   Пример комментариев в `app.py`:
+   ```python
+   @app.route('/train', methods=['POST'])
+   def train_model():
+       """
+       API для запуска тренировки модели.
+       Получает гиперпараметры тренировки (epochs, batch_size) из запроса.
+       Запускает тренировку модели в отдельном потоке.
+       """
+       global training_status, stop_training
+       epochs = request.json.get('epochs', 10)
+       batch_size = request.json.get('batch_size', 32)
+
+       # Обновляем статус тренировки
+       training_status = "Training started"
+       stop_training = False
+
+       # Функция для обучения модели
+       def train():
+           global training_status
+           ...
