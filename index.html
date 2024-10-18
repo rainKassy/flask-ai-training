@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Training</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <h1>AI Model Training Control Panel</h1>
+
+    <!-- Поля для ввода параметров -->
+    <label for="epochs">Epochs:</label>
+    <input type="number" id="epochs" value="10">
+
+    <label for="batch_size">Batch size:</label>
+    <input type="number" id="batch_size" value="32">
+
+    <!-- Кнопка для запуска и остановки тренировки -->
+    <button id="trainButton">Start Training</button>
+    <button id="stopButton">Stop Training</button>
+    <p id="status">Status: Waiting</p>
+
+    <!-- Прогресс бар -->
+    <h2>Training Progress</h2>
+    <div id="progress-container">
+        <div id="progress-bar" style="width: 0%; background-color: green; height: 20px;"></div>
+    </div>
+
+    <!-- Видеопоток -->
+    <h2>Live Video Feed</h2>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
